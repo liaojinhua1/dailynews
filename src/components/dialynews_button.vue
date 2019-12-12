@@ -1,4 +1,5 @@
 <template>
+
 <div class="btn" @click="handerclick">
 {{text}}
 </div>
@@ -18,7 +19,7 @@ export default {
 
 <style lang="less" scoped>
 .btn {
-    margin: 0 auto;
+    // margin: 0 auto;
     width: 314*100vw/360;
     height: 48 / 360 * 100vw;
   display: flex;
