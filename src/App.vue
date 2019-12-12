@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    aa
+
    <!-- 在跟组件中只需要添加路由映射 -->
    <router-view></router-view>
   </div>
