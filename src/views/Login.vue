@@ -47,7 +47,10 @@ export default {
         .then(res => {
           console.log(res.data)
           if (res.data.message === '登录成功') {
-            // 如果登录成功，则跳转页面
+            // 将当前的token存储，本地存储
+            window.localStorage.setItem('user_token', res.data.data.token)
+            // 如果登录成功，则跳转页面---当前id的用户信息详情页
+            this.$router.push({ path: `/Personal/${this.data.data.user.id}` })
           } else {
             // 如果登录不成功，则提示错误信息
             this.$toast.fail(res.data.message)
