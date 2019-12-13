@@ -24,8 +24,12 @@
 </template>
 
 <script>
+// 引入按钮
 import mybutton from '@/components/dialynews_button.vue'
+// 引入输入框
 import myinput from '@/components/dailynews_input.vue'
+// 引入api方法
+import { userLogin } from '@/api/users.js'
 export default {
   data () {
     return {
@@ -38,7 +42,21 @@ export default {
   },
   methods: {
     login (event) {
-      console.log(this.users)
+      // console.log(this.users)
+      userLogin(this.users)
+        .then(res => {
+          console.log(res.data)
+          if (res.data.message === '登录成功') {
+            // 如果登录成功，则跳转页面
+          } else {
+            // 如果登录不成功，则提示错误信息
+            this.$toast.fail(res.data.message)
+          }
+        })
+        .catch(err => {
+          console.log(err)
+          this.$toast.fail('登录失败，请重试')
+        })
     }
     // handerinput () {
     //   console.log(event.target.value)
